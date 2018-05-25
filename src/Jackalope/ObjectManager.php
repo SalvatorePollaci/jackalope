@@ -1149,6 +1149,9 @@ class ObjectManager
 
         /** @var $node Node */
         foreach ($this->objectsByPath[Node::class] as $node) {
+            if (!isset($this->objectsByPath[Node::class][$key]))
+                continue;
+
             if (! $keepChanges || ! ($node->isDeleted() || $node->isNew())) {
                 // if we keep changes, do not restore a deleted item
                 $this->objectsByUuid[$node->getIdentifier()] = $node->getPath();
