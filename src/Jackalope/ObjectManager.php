@@ -1148,7 +1148,7 @@ class ObjectManager
         $this->objectsByUuid = [];
 
         /** @var $node Node */
-        foreach ($this->objectsByPath[Node::class] as $node) {
+        foreach ($this->objectsByPath[Node::class] as $key => $node) {
             if (!isset($this->objectsByPath[Node::class][$key]))
                 continue;
 
